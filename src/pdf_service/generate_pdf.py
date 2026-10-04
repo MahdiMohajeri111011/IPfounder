@@ -2,7 +2,8 @@ from reportlab.pdfgen import canvas
 
 
 def create_pdf(data):
-    pdf = canvas.Canvas("result.pdf")
+    path = "result.pdf"
+    pdf = canvas.Canvas(path)
     pdf.drawString(100, 750, f"IP: {data['ip']}")
     pdf.drawString(100, 730, f"Type: {data['type']}")
     pdf.drawString(100, 710, f"Country: {data['country_name']}")
@@ -13,3 +14,4 @@ def create_pdf(data):
     pdf.drawString(100, 610, f"Longitude: {data['longitude']}")
 
     pdf.save()
+    return path
